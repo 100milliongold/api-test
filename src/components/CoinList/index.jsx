@@ -17,9 +17,12 @@ export default class CoinList extends Component {
   };
 
   componentDidMount() {
-    this.initData().then(
-      (res) => this.state.isError !== null && this.refreshData()
-    );
+    this.initData().then((res) => {
+      const { isError } = this.state;
+      if (isError === null) {
+        setTimeout(this.refreshData, REFRESH_TIME);
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -89,8 +92,8 @@ export default class CoinList extends Component {
    *
    */
   refreshData = () => {
-    const { isData } = this.state;
-    if (isData) {
+    const { isError } = this.state;
+    if (isError === null) {
       this.getTradingPairsAllStats()
         .then(({ name, data }) =>
           this.setState({ [name]: data }, () =>

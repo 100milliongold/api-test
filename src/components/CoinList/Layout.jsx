@@ -1,7 +1,7 @@
 import React from "react";
-import Tabs from "../Tabs";
+import { MemoizedTabs } from "../Tabs";
 
-import { MemoizedTable } from "./Table";
+import Table from "./Table";
 
 export default function Layout({
   view,
@@ -13,18 +13,13 @@ export default function Layout({
 }) {
   return (
     <>
-      <Tabs
+      <MemoizedTabs
         changeTab={changeTab}
         onClick={changeTab}
         value={view}
         list={[{ name: "KRW" }, { name: "BTC" }, { name: "ETH" }]}
       />
-      <MemoizedTable
-        assets={assets}
-        data={data}
-        isData={isData}
-        isError={isError}
-      />
+      <Table assets={assets} data={data} isData={isData} isError={isError} />
     </>
   );
 }

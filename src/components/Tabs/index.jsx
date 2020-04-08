@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Tabs.module.css";
 
-export default function Tabs({ value, list = [], onClick }) {
+export function Tabs({ value, list = [], onClick }) {
   return (
     <div className={style.wrap}>
       <ul className={style.taplist}>
@@ -22,3 +22,5 @@ export default function Tabs({ value, list = [], onClick }) {
 Tabs.defaultProps = {
   onClick: () => console.warn("onClick not defind"),
 };
+
+export const MemoizedTabs = React.memo(Tabs);

@@ -2,7 +2,7 @@ import React from "react";
 import style from "./CoinList.module.css";
 import CoinStats from "./CoinStats";
 
-export function Table({ assets, data, isData, isError }) {
+export default function Table({ assets, data, isData, isError }) {
   return (
     <div>
       <div className={style.TableHeader}>
@@ -85,5 +85,3 @@ export function Table({ assets, data, isData, isError }) {
     </div>
   );
 }
-
-export const MemoizedTable = React.memo(Table);
