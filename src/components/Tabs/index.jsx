@@ -1,12 +1,17 @@
 import React from "react";
+import style from "./Tabs.module.css";
 
-export default function Tabs({ view, list = [], onClick }) {
+export default function Tabs({ value, list = [], onClick }) {
   return (
-    <div>
-      <ul>
+    <div className={style.wrap}>
+      <ul className={style.taplist}>
         {list.map(({ name }, index) => (
-          <li key={index} className={view === "" ? "active" : ""}>
-            <p onClick={(e) => onClick(name)}>{name}</p>
+          <li
+            key={index}
+            className={value === name ? style.active : ""}
+            onClick={(e) => onClick(name)}
+          >
+            <p>{name}</p>
           </li>
         ))}
       </ul>
