@@ -14,7 +14,6 @@ export default function Layout({
   return (
     <>
       <MemoizedTabs
-        changeTab={changeTab}
         onClick={changeTab}
         value={view}
         list={[{ name: "KRW" }, { name: "BTC" }, { name: "ETH" }]}
